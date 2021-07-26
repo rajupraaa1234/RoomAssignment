@@ -68,7 +68,9 @@
             android:id="@+id/edit"
             android:layout_alignParentTop="true"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size10dp"
             android:layout_toRightOf="@+id/userid"
+            android:layout_toLeftOf="@+id/cartimage_rel"
             android:text="@string/edit"
             android:layout_below="@+id/cartimage_rel"
             />
@@ -77,11 +79,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/delete"
+            android:layout_toRightOf="@+id/cartimage_rel"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/size20dp"
             android:id="@+id/delete"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/cartimage_rel"
-            />
+            android:layout_marginLeft="@dimen/size20dp" />
 
 
 
