@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    tools:context=".View.signUp.UserSignup">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size44dp">
+        <ImageView
+            android:layout_width="@dimen/size20dp"
+            android:layout_height="@dimen/size20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/size22dp"
+            android:src="@drawable/ic_close"
+            android:id="@+id/closelogo"
+            app:tint="@color/white"
+            android:layout_marginRight="@dimen/size22dp"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/custom_gradiant"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="@dimen/size20dp"
+            android:paddingStart="@dimen/size20dp"
+            android:paddingTop="@dimen/size25dp"
+            android:paddingEnd="@dimen/size20dp"
+            android:paddingBottom="@dimen/size25dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size12dp"
+                android:layout_marginLeft="@dimen/size12dp"
+                android:fontFamily="@font/sfprodisplay_semibold"
+                android:text="@string/sign_up"
+                android:textColor="@color/col_2b2a2a"
+                android:textSize="@dimen/size25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size12dp"
+                android:layout_marginLeft="@dimen/size12dp"
+                android:layout_marginTop="@dimen/size9dp"
+                android:fontFamily="@font/sfrrodisplay_regular"
+                android:text="@string/enter_your_details_below"
+                android:textColor="@color/col_2b2a2a"
+                android:textSize="@dimen/size13sp" />
+
+            <RelativeLayout
+                android:layout_width="@dimen/size118dp"
+                android:layout_height="@dimen/size110dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/size24dp"
+                >
+                <RelativeLayout
+                    android:padding="@dimen/size3dp"
+                    android:background="@drawable/mask"
+                    android:layout_width="@dimen/size110dp"
+                    android:layout_height="@dimen/size110dp">
+
+                    <com.github.siyamed.shapeimageview.CircularImageView
+                        android:id="@+id/userimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_user"
+                        app:siBorderColor="@color/transparent"
+                        app:siBorderWidth="0dp"
+                        app:siRadius="@dimen/size50dp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/size32dp"
+                    android:layout_height="@dimen/size32dp"
+                    android:id="@+id/clickcamera1"
+                    android:src="@drawable/ic_camera"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/size20dp"
+                    android:layout_alignParentRight="true"
+                    >
+                </ImageView>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:layout_marginTop="@dimen/size30dp"
+                android:orientation="horizontal"
+                android:background="@drawable/blue_border"
+                android:weightSum="4">
+                <EditText
+                    android:id="@+id/firstname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/size18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/size16sp"
+                    android:ellipsize="end"
+                    android:inputType="text"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/first_name"
+                    android:maxLength="20"
+                    android:paddingEnd="@dimen/size10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/col_2b2a2a"
+                    android:textColorHint="@color/col_a7a7a7"
+                    android:text=""
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                    android:layout_marginLeft="@dimen/size18dp"
+                    android:paddingRight="@dimen/size10dp" />
+
+                <EditText
+                    android:id="@+id/secondname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/size50dp"
+                    android:layout_marginEnd="@dimen/size18dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/col_2b2a2a"
+                    android:textColorHint="@color/col_a7a7a7"
+                    android:backgroundTint="@color/white"
+                    android:textSize="@dimen/size16sp"
+                    android:inputType="text"
+                    android:ellipsize="end"
+                    android:layout_weight="2"
+                    android:hint="@string/second_name"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                    android:layout_marginLeft="@dimen/size18dp"
+                    android:layout_marginRight="@dimen/size18dp"
+                    />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/email"
+                android:hint="@string/email_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                style="@style/CommonEditText"
+                android:inputType="textEmailAddress"
+                 />
+
+            <LinearLayout
+                android:id="@+id/relPhoneNum"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:layout_marginTop="@dimen/size10dp"
+                android:background="@drawable/blue_border">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_weight="1.4"
+                    android:gravity="end"
+                    android:paddingTop="2dp">
+
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/countryPicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/etPhoneNum"
+                        android:background="@android:color/transparent"
+                        android:paddingStart="1dp"
+                        app:ccp_contentColor="@color/col_2b2a2a"
+                        app:ccp_textSize="@dimen/size15sp"
+                        app:ccp_showFlag="true"
+                        android:paddingLeft="1dp"
+                        android:layout_toLeftOf="@+id/etPhoneNum" />
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/etPhoneNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size55dp"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ellipsize="end"
+                    android:digits="1234567890"
+                    android:hint="Phone number"
+                    android:inputType="number"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/col_2b2a2a"
+                    android:textColorHint="@color/col_a7a7a7"
+                    android:textSize="@dimen/size15sp"
+                    android:visibility="visible"
+                    />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                style="@style/CommonEditText"
+                android:hint="@string/cpassword"
+                android:maxLength="50"
+                android:inputType="textPassword"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:hint="@string/confirm_password"
+                android:maxLength="50"
+                android:inputType="textPassword"
+                style="@style/CommonEditText"
+                android:id="@+id/cpassword"
+                 />
+
+            <TextView
+                android:id="@+id/reg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:layout_marginTop="@dimen/size10dp"
+                android:background="@drawable/disable_btn"
+                android:gravity="center"
+                android:text="Continue"
+                android:paddingLeft="@dimen/size8dp"
+                android:paddingRight="@dimen/size8dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size16sp"
+                android:fontFamily="@font/sprodisplay_medium"
+                />
+
+            <TextView
+                android:id="@+id/tvSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/already_have_an_account_sign_in"
+                android:textColor="@color/col_2b2a2a"
+                android:layout_marginTop="@dimen/size25dp"
+                android:textSize="@dimen/size15sp"
+                android:fontFamily="@font/sprodisplay_medium"/>
+            <TextView
+                android:id="@+id/tvTermCondition"
+                android:layout_width="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/by_entering_into_asapp_you_re_agree_to_our_terms_amp_conditions_"
+                android:layout_height="wrap_content"
+                android:textColor="@color/col_949494"
+                android:textSize="@dimen/size11sp"
+                android:textColorLink="@color/col_949494"
+                android:fontFamily="@font/sfrrodisplay_regular"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+</layout>

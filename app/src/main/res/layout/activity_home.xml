@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/myswaper"
+    android:layout_height="match_parent"
+    tools:context=".View.HomeActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/myrecycle"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addcart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/size650dp"
+        app:fabSize="normal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/size28dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_action_name" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/size650dp"
+        app:fabSize="normal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/size28dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/logout"
+         />
+
+</RelativeLayout>
+</LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

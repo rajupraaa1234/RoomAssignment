@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">RoomAssignment</string>
+    <string name="edit">edit</string>
+    <string name="username">UserName</string>
+    <string name="delete">delete</string>
+    <string name="description">Description</string>
+    <string name="_1">1</string>
+    <string name="enter_user_id">Enter User id</string>
+    <string name="enter_user_description">Enter User description</string>
+
+
+    <string name="welcome_to_mvvm">Welcome To MVVM</string>
+    <string name="user_login">User Login</string>
+    <string name="enter_username">Enter UserName</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register_now">Register Now</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="SighIn" />
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="enter_your_email_address_and_password_below_to_continue">Enter your email address and password below to continue</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="by_entering_into_asapp_you_re_agree_to_our_terms_amp_conditions_">By entering into asapp, you’re agree to our terms &amp; conditions and privacy policy.</string>
+    <string name="don_t_have_an_account_sign_up">Don’t have an account? <u>Sign Up</u></string>
+    <string name="first_name">First Name</string>
+    <string name="cpassword">Password(must be 6 to 12 Characters)</string>
+    <string name="already_have_an_account_sign_in">Already have an account? <u>Sign In</u></string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_your_details_below">Enter your details below</string>
+    <string name="second_name">Second Name</string>
+    <string name="please_enter_your_name">Please enter your first name</string>
+    <string name="First_name_greater_than_3">First Name\'s length should be grater than or equal to 3</string>
+    <string name="please_second_name">Please enter your second name</string>
+    <string name="second_name_greater_than_3">Second Name\'s length should be grater than or equal to 3</string>
+    <string name="please_enter_your_email">please enter your email</string>
+    <string name="enter_your_email">Enter Valid Email</string>
+    <string name="enter_your_phone">Enter your phone number</string>
+    <string name="valid_phone_number">Enter valid phone number</string>
+    <string name="enter_pass">Enter Password</string>
+    <string name="pass_greater_than_3">Password\'s length should be greater than or equal to 6</string>
+    <string name="conf_pass">Enter confirm password</string>
+    <string name="pass_not_match">Password not match</string>
+    <string name="enter_detail">Enter Detail</string>
+    <string name="passIncorrect">Password Incorrect</string>
+    <string name="ownerNotReg">Owner Not Registered</string>
+<!--  For Face both of them-->
+    <string name="facebook_app_id">895648591278688</string>
+    <string name="fb_login_protocol_scheme">fb895648591278688</string>
+    <string name="cancel">Cancel</string>
+    <string name="swm">Something went Wrong</string>
+    <string name="enterUserName">Please Enter Username</string>
+    <string name="enterUserid">Please Enter UserId</string>
+    <string name="enterUserDesc">Please Enter User description</string>
+    <string name="owner_success">Owner Login Successfully</string>
+    <string name="Registration_Successfully">Registration Successfully</string>
+    <string name="This_Owner_has_Already_registered">This Owner has Already registered</string>
+    <string name="user_added_success">User Added successfully</string>
+    <string name="user_already_exist">User Already Added</string>
+    <string name="user_updated_success">User Updated Successfully</string>
+    <string name="User_deleted">User Deleted</string>
+    <string name="user_not_exist">User doesn\'t exist</string>
+    <string name="login_successfully">Login successfully</string>
+    <string name="first_name_not_valid">First Name Not Valid</string>
+    <string name="enter_UserName">Please enter username</string>
+    <string name="UserName_greater">UserName\'s length must be greater than 3</string>
+    <string name="Not_UserName_Valid">Not Valid username</string>
+
+
+</resources>

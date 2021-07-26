@@ -1,0 +1,157 @@
+
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.DashBoard.EditUserData">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/custom_gradiant"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
+
+            <RelativeLayout
+                android:layout_width="@dimen/size118dp"
+                android:layout_height="@dimen/size110dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/size24dp"
+                >
+                <RelativeLayout
+                    android:padding="@dimen/size3dp"
+                    android:background="@drawable/mask"
+                    android:layout_width="@dimen/size110dp"
+                    android:layout_height="@dimen/size110dp">
+
+                    <com.github.siyamed.shapeimageview.CircularImageView
+                        android:id="@+id/userimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_user"
+                        app:siBorderColor="@color/transparent"
+                        app:siBorderWidth="0dp"
+                        app:siRadius="@dimen/size50dp" />
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="@dimen/size32dp"
+                    android:layout_height="@dimen/size32dp"
+                    android:id="@+id/clickcamera"
+                    android:src="@drawable/ic_camera"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/size20dp"
+                    android:layout_alignParentRight="true"
+                    >
+                </ImageView>
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:layout_marginTop="@dimen/size10dp"
+                android:background="@drawable/blue_border"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:hint="Enter User name"
+                android:layout_margin="@dimen/size20dp"
+                android:maxLength="50"
+                android:text=""
+                android:paddingStart="@dimen/size8dp"
+                android:paddingEnd="@dimen/size8dp"
+                android:singleLine="true"
+                android:textColor="@color/col_2b2a2a"
+                android:textColorHint="@color/col_a7a7a7"
+                android:textSize="@dimen/size15sp"
+                android:paddingLeft="@dimen/size8dp"
+                android:paddingRight="@dimen/size8dp" />
+
+            <EditText
+                android:id="@+id/userid"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:text=""
+                android:layout_marginTop="@dimen/size10dp"
+                android:background="@drawable/blue_border"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:hint="@string/enter_user_id"
+                android:layout_margin="@dimen/size20dp"
+                android:maxLength="10"
+                android:paddingStart="@dimen/size8dp"
+                android:paddingEnd="@dimen/size8dp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:textColor="@color/col_2b2a2a"
+                android:textColorHint="@color/col_a7a7a7"
+                android:textSize="@dimen/size15sp"
+                android:paddingLeft="@dimen/size8dp"
+                android:paddingRight="@dimen/size8dp" />
+
+            <EditText
+                android:id="@+id/userdesc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:layout_marginTop="@dimen/size10dp"
+                android:background="@drawable/blue_border"
+                android:text=""
+                android:ellipsize="end"
+                android:gravity="center"
+                android:hint="@string/enter_user_description"
+                android:layout_margin="@dimen/size20dp"
+                android:paddingStart="@dimen/size8dp"
+                android:paddingEnd="@dimen/size8dp"
+                android:singleLine="true"
+                android:inputType="text"
+                android:textColor="@color/col_2b2a2a"
+                android:textColorHint="@color/col_a7a7a7"
+                android:textSize="@dimen/size15sp"
+                android:paddingLeft="@dimen/size8dp"
+                android:paddingRight="@dimen/size8dp" />
+
+            <TextView
+                android:id="@+id/editbtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:layout_marginTop="@dimen/size10dp"
+                android:background="@drawable/disable_btn"
+                android:gravity="center"
+                android:text="Edit "
+                android:paddingLeft="@dimen/size8dp"
+                android:paddingRight="@dimen/size8dp"
+                android:layout_margin="@dimen/size20dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size16sp"
+                android:fontFamily="@font/sprodisplay_medium"
+                />
+
+            <TextView
+                android:id="@+id/cancelbtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size55dp"
+                android:layout_marginTop="@dimen/size10dp"
+                android:background="@drawable/disable_btn"
+                android:gravity="center"
+                android:text="Cancel"
+                android:paddingLeft="@dimen/size8dp"
+                android:paddingRight="@dimen/size8dp"
+                android:layout_margin="@dimen/size20dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size16sp"
+                android:fontFamily="@font/sprodisplay_medium"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+</layout>
