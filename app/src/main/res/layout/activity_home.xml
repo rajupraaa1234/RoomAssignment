@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/myswaper"
+    android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
     tools:context=".View.HomeActivity">
 
-<LinearLayout
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+        <ImageView
+            android:id="@+id/toggle"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_baseline_drag_handle_24"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tabTitle"
+            android:layout_width="wrap_content"
+            android:text="@string/home"
+            android:textColor="@color/white"
+            android:layout_marginStart="@dimen/size30dp"
+            android:textSize="25sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size30dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:layout_width="match_parent"
+    android:id="@+id/myswaper"
+    android:layout_below="@id/toolbar"
+    android:layout_height="match_parent">
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <RelativeLayout
@@ -26,7 +56,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/size650dp"
         app:fabSize="normal"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="@dimen/size28dp"
@@ -37,8 +66,8 @@
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="@dimen/size650dp"
         app:fabSize="normal"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/size28dp"
@@ -49,4 +78,14 @@
 </RelativeLayout>
 </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+   </RelativeLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/activity_dash_borad_drawer"/>
+</androidx.drawerlayout.widget.DrawerLayout>
 </layout>

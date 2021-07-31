@@ -35,8 +35,14 @@ public interface MyDataAccsessObject{
     @Insert
     public void insertRegister(RegisterUser registerUser);
 
+    @Query("SELECT * FROM Register_users WHERE email = :eml")
+    public RegisterUser getOwnerUser(String eml);
+
 
     @Query("SELECT * FROM Register_users WHERE email = :eml AND User_password = :pas")
     int isExistUser(String eml,String pas);
+
+    @Update
+    public void UpdateOwnerUser(RegisterUser user);
 
 }

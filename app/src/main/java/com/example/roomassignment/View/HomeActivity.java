@@ -1,9 +1,13 @@
 package com.example.roomassignment.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -12,7 +16,10 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.roomassignment.Model.ProjectConstant.appConstant;
 import com.example.roomassignment.Model.Session.Sessionmanager;
@@ -22,10 +29,12 @@ import com.example.roomassignment.Model.CallBack.UpdateUserClickListner;
 import com.example.roomassignment.Model.MyRoom.UserEntity;
 import com.example.roomassignment.Model.RecyclerViewAdapter;
 import com.example.roomassignment.R;
+import com.example.roomassignment.View.Profile.ProfileActivity;
 import com.example.roomassignment.View.login.UserLogin;
 import com.example.roomassignment.ViewModel.AddUserViewModel;
 import com.example.roomassignment.databinding.ActivityHomeBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -42,11 +51,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
+
+    private DrawerLayout drawer_layout;
+    private NavigationView navigationView;
+    private ImageView toggle;
+    private Toolbar toolbar;
+    private TextView TbText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_home);
         initlization();
+        intiActionBar();
         CollectData();
     }
 
@@ -67,6 +84,65 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 CollectData();
             }
         });
+
+        drawer_layout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigationView);
+        toggle = findViewById(R.id.toggle);
+        toolbar = findViewById(R.id.toolbar);
+        TbText = findViewById(R.id.tabTitle);
+
+        toggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavigationClickHandler();
+            }
+        });
+
+        setNavigationClickListner();
+
+    }
+
+    private void setNavigationClickListner() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId()){
+                    case R.id.mynav_home:
+                        drawer_layout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.profile:
+                        drawer_layout.closeDrawer(GravityCompat.START);
+                        openProfileActivity();
+                        break;
+                    case R.id.logout:
+                        drawer_layout.closeDrawer(GravityCompat.START);
+                        OpenAlertForLogout();
+                        break;
+                    case R.id.newReminder:
+                        drawer_layout.closeDrawer(GravityCompat.START);
+                        addUser();
+                        break;
+                }
+                return false;
+            }
+        });
+    }
+
+    private void openProfileActivity() {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    private void intiActionBar() {
+        setSupportActionBar(toolbar);
+    }
+
+    private void NavigationClickHandler(){
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START);
+        } else {
+            drawer_layout.openDrawer(GravityCompat.START);
+        }
     }
 
     @Override
@@ -76,7 +152,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                   addUser();
                   break;
               case R.id.logout:
-                  OpenAlertForLogout();
+                  //OpenAlertForLogout();
                   break;
           }
     }
@@ -117,6 +193,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void addUser() {
         Intent i = new Intent(this, AddUser.class);
         startActivityForResult(i, LAUNCH_SECOND_ACTIVITY);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
     }
 
     @Override

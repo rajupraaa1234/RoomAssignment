@@ -6,13 +6,13 @@ android {
     dataBinding {
         enabled true
     }
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.example.roomassignment"
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion 29
+        targetSdkVersion 29
         versionCode 1
         multiDexEnabled true
         versionName "1.0"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RoomAssignment</string>
+    <string name="app_name"></string>
     <string name="edit">edit</string>
     <string name="username">UserName</string>
     <string name="delete">delete</string>
@@ -46,7 +46,7 @@
     <string name="enter_detail">Enter Detail</string>
     <string name="passIncorrect">Password Incorrect</string>
     <string name="ownerNotReg">Owner Not Registered</string>
-<!--  For Face both of them-->
+    <!--  For Face both of them-->
     <string name="facebook_app_id">895648591278688</string>
     <string name="fb_login_protocol_scheme">fb895648591278688</string>
     <string name="cancel">Cancel</string>
@@ -67,6 +67,11 @@
     <string name="enter_UserName">Please enter username</string>
     <string name="UserName_greater">UserName\'s length must be greater than 3</string>
     <string name="Not_UserName_Valid">Not Valid username</string>
+    <string name="logout">logout</string>
+    <string name="my_profile">My Profile</string>
+    <string name="home">Home</string>
+    <string name="add_new_reminder">Add New Reminder</string>
+    <string name="update">Update</string>
 
 
 </resources>

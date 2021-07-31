@@ -39,4 +39,12 @@ public class AddNewOwner {
         if(res==0) return false;
         return true;
     }
+
+    public RegisterUser getOwnerUserDetail(String email){
+        return myDataBase.myDataAccsessObject().getOwnerUser(email);
+    }
+
+    public void UpdateOwnerdetails(RegisterUser user){
+        myDataBase.myDataAccsessObject().UpdateOwnerUser(user);
+    }
 }
