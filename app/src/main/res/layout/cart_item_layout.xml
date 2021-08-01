@@ -54,6 +54,7 @@
             android:id="@+id/toggleButton2"
             android:layout_width="50dp"
             android:layout_height="40dp"
+            android:visibility="gone"
             android:layout_below="@+id/cartimage_rel"
             android:text="ToggleButton"
             android:textOff="Off"
@@ -66,7 +67,8 @@
             android:id="@+id/timeanddate"
             android:textColor="@color/white"
             android:text=""
-            android:layout_below="@+id/toggleButton2"
+            android:layout_marginTop="@dimen/size5dp"
+            android:layout_below="@+id/cartimage_rel"
             android:layout_height="wrap_content"/>
 
         <TextView

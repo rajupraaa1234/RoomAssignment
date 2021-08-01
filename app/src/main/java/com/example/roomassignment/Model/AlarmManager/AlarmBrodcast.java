@@ -30,18 +30,19 @@ public class AlarmBrodcast extends BroadcastReceiver {
 
         Intent intent1 = new Intent(context, NotificationMessage.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        //intent1.putExtra("message", text);
+        intent1.putExtra("mail", mail);
+        intent1.putExtra("id", id);
         //Notification Builder
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent1, PendingIntent.FLAG_ONE_SHOT);
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "notify_001");
 
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_layout);
-        contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);
+        contentView.setImageViewResource(R.id.image, R.drawable.ic_baseline_notifications_24);
         PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
         contentView.setOnClickPendingIntent(R.id.flashButton, pendingSwitchIntent);
-        contentView.setTextViewText(R.id.message, mail);
-        contentView.setTextViewText(R.id.date, date);
+        contentView.setTextViewText(R.id.message, "Reminder App");
+        contentView.setTextViewText(R.id.date, "Hey " + mail +" You got Reminder Notification please check it...");
         mBuilder.setSmallIcon(R.drawable.ic_baseline_notifications_24);
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(true);

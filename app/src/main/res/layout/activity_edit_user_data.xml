@@ -17,6 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical"
             >
 
@@ -67,7 +68,6 @@
                 android:text=""
                 android:paddingStart="@dimen/size8dp"
                 android:paddingEnd="@dimen/size8dp"
-                android:singleLine="true"
                 android:textColor="@color/col_2b2a2a"
                 android:textColorHint="@color/col_a7a7a7"
                 android:textSize="@dimen/size15sp"

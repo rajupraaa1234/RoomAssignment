@@ -19,7 +19,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/size25dp"
             android:layout_marginBottom="@dimen/size25dp"
-            android:text="Save Details"
+            android:text="Reminder App"
             android:textSize="50dp"
             android:fontFamily="@font/sfprodisplay_light"
             android:textColor="@color/white"
@@ -148,7 +148,6 @@
                 <com.google.android.gms.common.SignInButton
                     android:id="@+id/sign_in_button"
                     android:foregroundGravity="center"
-                    android:visibility="gone"
                     android:layout_centerHorizontal="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

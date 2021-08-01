@@ -158,6 +158,8 @@ public class EditUserData extends AppCompatActivity implements View.OnClickListe
         if((mtime!=null && mdate!=null) && (!mtime.isEmpty() && !mdate.isEmpty())){
             binding.time.setChecked(true);
             binding.date.setChecked(true);
+            time = mtime;
+            date = mdate;
             binding.time.setText(mtime);
             binding.date.setText(mdate);
         }

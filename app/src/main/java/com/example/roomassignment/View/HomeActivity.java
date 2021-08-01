@@ -27,7 +27,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.roomassignment.Model.AlarmManager.AlarmBrodcast;
+import com.example.roomassignment.Model.MyRoom.RegisterUser;
 import com.example.roomassignment.Model.ProjectConstant.appConstant;
 import com.example.roomassignment.Model.Session.Sessionmanager;
 import com.example.roomassignment.View.DashBoard.AddUser;
@@ -38,8 +41,10 @@ import com.example.roomassignment.Model.RecyclerViewAdapter;
 import com.example.roomassignment.R;
 import com.example.roomassignment.View.Profile.ProfileActivity;
 import com.example.roomassignment.View.login.UserLogin;
+import com.example.roomassignment.ViewModel.AddNewOwner;
 import com.example.roomassignment.ViewModel.AddUserViewModel;
 import com.example.roomassignment.databinding.ActivityHomeBinding;
+import com.github.siyamed.shapeimageview.CircularImageView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -62,6 +67,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
+    private AddNewOwner addNewOwner;
 
     private DrawerLayout drawer_layout;
     private NavigationView navigationView;
@@ -78,6 +84,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         intiActionBar();
         CollectData();
         swipeDelte();
+        setUserImage();
+    }
+
+    private void setUserImage() {
+        View hView =  navigationView.getHeaderView(0);
+        CircularImageView image = (CircularImageView)hView.findViewById(R.id.himage);
+        TextView uname = hView.findViewById(R.id.usernaqme);
+        String OwnerEmail = sessionmanager.getEmail();
+        RegisterUser user = addNewOwner.getOwnerUserDetail(OwnerEmail);
+        uname.setText(user.getFisrt_name() + " " + user.getSecond_name());
+        if(user.getImage()!=null && !user.getImage().isEmpty()) {
+            Glide.with(this).load(user.getImage()).apply(RequestOptions.circleCropTransform()).into(image);
+        }
     }
 
 
@@ -90,6 +109,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setHasFixedSize(true);
         sessionmanager=new Sessionmanager(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        addNewOwner = new AddNewOwner(this);
         swipeRefreshLayout.setColorSchemeResources(R.color.purple_700,R.color.teal_200,R.color.teal_700);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

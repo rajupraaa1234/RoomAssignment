@@ -2,16 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="192dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+
+    <RelativeLayout
+        android:padding="@dimen/size3dp"
+        android:background="@drawable/mask"
+        android:layout_width="@dimen/size110dp"
+        android:layout_height="@dimen/size110dp">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/himage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_user"
+            app:siBorderColor="@color/transparent"
+            app:siBorderWidth="0dp"
+            app:siRadius="@dimen/size50dp" />
+    </RelativeLayout>
+
     <TextView
+        android:id="@+id/usernaqme"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/size3dp"
         android:layout_height="wrap_content"
-        android:text="My Calculator"
+        android:text="UserName"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/size10dp"
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

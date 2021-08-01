@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image"
-            android:text="Save Details"
+            android:text="Reminder App"
             android:textSize="40sp"
             style="@style/Theme.Design.BottomSheetDialog"
             />

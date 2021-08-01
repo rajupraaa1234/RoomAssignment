@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/size20dp"
     tools:context=".View.Notification.NotificationMessage">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <ImageView-->
+<!--        android:id="@+id/Notificationimg"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:src="@drawable/ic_baseline_login_24"-->
+<!--        android:layout_height="@dimen/size200dp"/>-->
+
+    <RelativeLayout
+        android:id="@+id/imgRel"
+        android:padding="@dimen/size3dp"
+        android:background="@drawable/mask"
+        android:visibility="gone"
+        android:layout_width="180dp"
+        android:layout_gravity="center"
+        android:layout_height="180dp">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/Notificationimg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_user"
+            app:siBorderColor="@color/transparent"
+            app:siBorderWidth="0dp"
+            app:siRadius="@dimen/size50dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/Ntitle"
+        android:layout_width="wrap_content"
+        style="@style/CardView.Light"
+        android:text="Raju kumar"
+        android:textSize="@dimen/size30sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size10dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Ndesc"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/size20sp"
+        android:text="fbszdjvbhjzdbvjzb"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/size10dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Ncontinuebtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size55dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/enablebtn"
+        android:gravity="center"
+        android:layout_gravity="end"
+        android:text="Okay"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size16sp"
+        android:fontFamily="@font/sprodisplay_medium"
+        android:layout_marginLeft="@dimen/size5dp" />
+
+</LinearLayout>

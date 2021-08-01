@@ -88,11 +88,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
        holder.user_id.setText(String.valueOf(userEntity.getId()));
        String imageStringUri=userEntity.getUser_image();
        if(userEntity.getTime()){
-           holder.toggleButton2.setChecked(true);
            holder.timeDate.setVisibility(View.VISIBLE);
            holder.timeDate.setText(userEntity.getDate() + " " + userEntity.getAtime());
        }else{
-           holder.toggleButton2.setChecked(false);
            holder.timeDate.setVisibility(View.GONE);
        }
 
@@ -103,12 +101,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Button edit=holder.edit;
         Button del=holder.delete;
-        holder.toggleButton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                updateUserClickListner.onToggleClick(arr.get(position),position,b);
-            }
-        });
 
         holder.cardv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,7 +149,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ImageView user_image;
         Button edit;
         Button delete;
-        ToggleButton toggleButton2;
         TextView timeDate;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
@@ -168,7 +159,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             edit=itemView.findViewById(R.id.edit);
             delete=itemView.findViewById(R.id.delete);
             cardv = itemView.findViewById(R.id.cardv);
-            toggleButton2 = itemView.findViewById(R.id.toggleButton2);
             timeDate = itemView.findViewById(R.id.timeanddate);
         }
     }
