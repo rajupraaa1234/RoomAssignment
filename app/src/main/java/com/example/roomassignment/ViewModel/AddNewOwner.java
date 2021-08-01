@@ -45,6 +45,12 @@ public class AddNewOwner {
     }
 
     public void UpdateOwnerdetails(RegisterUser user){
-        myDataBase.myDataAccsessObject().UpdateOwnerUser(user);
+        String email = user.getUseremail();
+        String fname = user.getFisrt_name();
+        String sname = user.getSecond_name();
+        String image = user.getImage();
+        String mob = user.getUser_mobile();
+        String pass = user.getPassword();
+        myDataBase.myDataAccsessObject().UpdateOwnerUser(email,fname,sname,image,mob,pass);
     }
 }

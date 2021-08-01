@@ -6,7 +6,7 @@
     <string name="description">Description</string>
     <string name="_1">1</string>
     <string name="enter_user_id">Enter User id</string>
-    <string name="enter_user_description">Enter User description</string>
+    <string name="enter_user_description">Enter Reminder</string>
 
 
     <string name="welcome_to_mvvm">Welcome To MVVM</string>
@@ -72,6 +72,9 @@
     <string name="home">Home</string>
     <string name="add_new_reminder">Add New Reminder</string>
     <string name="update">Update</string>
+    <string name="enter_reminder_title">Enter Reminder Title</string>
+    <string name="enter_reminder_id">Enter Reminder Id</string>
+    <string name="enter_diff_id">Please Enter different Reminder Id it is already used</string>
 
 
 </resources>

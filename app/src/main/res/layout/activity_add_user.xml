@@ -18,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
         >
 
         <RelativeLayout
@@ -58,12 +57,11 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size55dp"
-            android:layout_marginTop="@dimen/size10dp"
             android:background="@drawable/blue_border"
             android:ellipsize="end"
             android:gravity="center"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            android:hint="Enter User name"
+            android:hint="@string/enter_reminder_title"
             android:layout_margin="@dimen/size20dp"
             android:maxLength="15"
             android:text=""
@@ -81,11 +79,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size55dp"
             android:text=""
-            android:layout_marginTop="@dimen/size10dp"
             android:background="@drawable/blue_border"
             android:ellipsize="end"
             android:gravity="center"
-            android:hint="@string/enter_user_id"
+            android:hint="@string/enter_reminder_id"
             android:layout_margin="@dimen/size20dp"
             android:maxLength="10"
             android:paddingStart="@dimen/size8dp"
@@ -101,7 +98,6 @@
             android:id="@+id/userdesc"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size55dp"
-            android:layout_marginTop="@dimen/size10dp"
             android:background="@drawable/blue_border"
             android:text=""
             android:ellipsize="end"
@@ -117,11 +113,26 @@
             android:textSize="@dimen/size15sp"
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/size20dp"
+            android:layout_height="wrap_content">
+               <CheckBox
+                   android:id="@+id/date"
+                   android:layout_width="wrap_content"
+                   android:text="Set Date"
+                   android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:text="Set Time"
+                android:layout_marginStart="@dimen/size30dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
         <TextView
             android:id="@+id/addbtn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size55dp"
-            android:layout_marginTop="@dimen/size10dp"
             android:background="@drawable/disable_btn"
             android:gravity="center"
             android:text="Add "

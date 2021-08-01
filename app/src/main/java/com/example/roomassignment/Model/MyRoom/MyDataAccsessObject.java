@@ -14,9 +14,13 @@ public interface MyDataAccsessObject{
     @Insert
     public void insert(UserEntity userEntity);
 
+    @Query("select * from users WHERE Owner_email = :owner_email AND id= :mid")
+    UserEntity getUser(String owner_email,int mid);
+
 
     @Query("SELECT * FROM users WHERE id = :id AND Owner_email = :owner_email")
     int isDataExist(int id,String owner_email);
+
 
     @Query("select * from users WHERE Owner_email = :owner_email")
     List<UserEntity> getUser(String owner_email);
@@ -26,6 +30,9 @@ public interface MyDataAccsessObject{
 
     @Update
     public void UpdateUser(UserEntity user);
+
+    @Query("UPDATE users SET atime = :t WHERE Owner_email =:mail")
+    public void UpdateOwnerUser(Boolean t,String mail);
 
 
 //***************************New Owner Table*************************************
@@ -42,7 +49,20 @@ public interface MyDataAccsessObject{
     @Query("SELECT * FROM Register_users WHERE email = :eml AND User_password = :pas")
     int isExistUser(String eml,String pas);
 
-    @Update
-    public void UpdateOwnerUser(RegisterUser user);
+    @Query("UPDATE Register_users SET User_password = :pass,User_password = :pass,User_image = :image,User_mobile = :mob,FirstName = :fname,SecondName =:sname  WHERE email =:mail")
+    public void UpdateOwnerUser(String mail,String fname,String sname,String image,String mob,String pass);
 
+ //***************************** Alarm Time Table **********************************
+
+    @Insert
+    void insertAll(AlarmTimeEntity entity);
+
+
+    @Query("SELECT * FROM AlarmTable WHERE RemenderId = :id")
+    public AlarmTimeEntity getAlarmItem(int id);
+
+
+    @Delete
+    public void deleteAlarmTime(AlarmTimeEntity userEntity);
+    
 }

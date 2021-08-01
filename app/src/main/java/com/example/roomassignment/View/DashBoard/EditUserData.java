@@ -5,14 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -20,11 +27,15 @@ import com.example.roomassignment.Model.ProjectConstant.appConstant;
 import com.example.roomassignment.R;
 import com.example.roomassignment.databinding.ActivityEditUserDataBinding;
 
+import java.util.Calendar;
+
 public class EditUserData extends AppCompatActivity implements View.OnClickListener{
 
     private static final int PICK_IMAGE = 100;
     ActivityEditUserDataBinding binding;
     private String imageuri="";
+    private String time ="";
+    private String date = "";
     TextWatcher textWatcher=new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -125,6 +136,8 @@ public class EditUserData extends AppCompatActivity implements View.OnClickListe
         returnIntent.putExtra(appConstant.user_id, id);
         returnIntent.putExtra(appConstant.user_desc, desc);
         returnIntent.putExtra(appConstant.image,imageuri);
+        returnIntent.putExtra(appConstant.time,time);
+        returnIntent.putExtra(appConstant.date,date);
         setResult(Activity.RESULT_OK,returnIntent);
         finish();
     }
@@ -135,10 +148,42 @@ public class EditUserData extends AppCompatActivity implements View.OnClickListe
         String id=intent.getStringExtra(appConstant.user_id);
         String desc=intent.getStringExtra(appConstant.user_desc);
         String imageStringUri=intent.getStringExtra(appConstant.User_image);
+        String mtime = intent.getStringExtra(appConstant.time);
+        String mdate = intent.getStringExtra(appConstant.date);
         imageuri=imageStringUri;
         binding.userdesc.setText(desc);
         binding.userid.setText(id);
         binding.username.setText(name);
+        Log.i("mMyDate"," "+time + " " + date );
+        if((mtime!=null && mdate!=null) && (!mtime.isEmpty() && !mdate.isEmpty())){
+            binding.time.setChecked(true);
+            binding.date.setChecked(true);
+            binding.time.setText(mtime);
+            binding.date.setText(mdate);
+        }
+        binding.time.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if(isChecked){
+                    selectTime();
+                }else{
+                    time = "";
+                }
+            }
+          }
+        );
+
+        binding.date.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if(isChecked){
+                    selectDate();
+                }else{
+                    date = "";
+                }
+            }
+          }
+        );
         if(imageStringUri!=null && !imageStringUri.isEmpty()){
             Uri uri=Uri.parse(imageStringUri);
             Glide.with(EditUserData.this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.userimage);
@@ -149,5 +194,76 @@ public class EditUserData extends AppCompatActivity implements View.OnClickListe
         Intent returnIntent = new Intent();
         setResult(Activity.RESULT_CANCELED, returnIntent);
         finish();
+    }
+
+
+    private void selectTime() {
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                time = i + ":" + i1;
+                binding.time.setText(FormatTime(i, i1));
+            }
+
+        }, hour, minute, false);
+
+        timePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                binding.time.setChecked(false);
+            }
+        });
+        timePickerDialog.show();
+
+    }
+
+    private void selectDate() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                date = day + "-" + (month + 1) + "-" + year;
+                binding.date.setText(day + "-" + (month + 1) + "-" + year);
+            }
+        }, year, month, day);
+        datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                binding.date.setChecked(false);
+            }
+        });
+        datePickerDialog.show();
+    }
+
+    public String FormatTime(int hour, int minute) {
+
+        String time;
+        time = "";
+        String formattedMinute;
+
+        if (minute / 10 == 0) {
+            formattedMinute = "0" + minute;
+        } else {
+            formattedMinute = "" + minute;
+        }
+
+
+        if (hour == 0) {
+            time = "12" + ":" + formattedMinute + " AM";
+        } else if (hour < 12) {
+            time = hour + ":" + formattedMinute + " AM";
+        } else if (hour == 12) {
+            time = "12" + ":" + formattedMinute + " PM";
+        } else {
+            int temp = hour - 12;
+            time = temp + ":" + formattedMinute + " PM";
+        }
+        return time;
     }
 }

@@ -24,8 +24,7 @@
         <item name="android:textColor">@color/col_2b2a2a</item>
         <item name="android:textColorHint">@color/col_7e7e7e</item>
         <item name="android:textSize">@dimen/size15sp</item>
-        <item name="android:layout_marginLeft">@dimen/size5dp</item>
-        <item name="android:layout_marginRight">@dimen/size5dp</item>
+
     </style>
 
 

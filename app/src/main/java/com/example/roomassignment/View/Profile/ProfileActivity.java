@@ -39,6 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView updatebtn;
     private AddNewOwner addNewOwner;
     private static final int PICK_IMAGE = 100;
+    private ImageView closelogo;
     private LoginValidation loginValidation;
     private String imageuri;
     TextWatcher textWatcher=new TextWatcher() {
@@ -69,6 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
     private void setUIDataFromDb() {
         String OwnerEmail = sessionmanager.getEmail();
         RegisterUser user = addNewOwner.getOwnerUserDetail(OwnerEmail);
+        imageuri = user.getImage();
         fname.setText(user.getFisrt_name());
         sname.setText(user.getSecond_name());
         email.setText(user.getUseremail());
@@ -96,6 +98,14 @@ public class ProfileActivity extends AppCompatActivity {
         updatebtn = findViewById(R.id.updatebtn);
         sessionmanager=new Sessionmanager(this);
         addNewOwner = new AddNewOwner(this);
+        closelogo = findViewById(R.id.closelogo);
+
+        closelogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         loginValidation = new LoginValidation(this);
 

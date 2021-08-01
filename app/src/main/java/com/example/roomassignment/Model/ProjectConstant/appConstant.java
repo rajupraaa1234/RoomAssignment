@@ -16,6 +16,9 @@ public class appConstant {
     public static final String user_desc="user_desc";
     public static final String image="image";
     public static final String User_image="User_image";
+    public static final String time="time";
+    public static final String date="date";
+
 
     //Google Signin Constant
     public static final String firstname="firstname";

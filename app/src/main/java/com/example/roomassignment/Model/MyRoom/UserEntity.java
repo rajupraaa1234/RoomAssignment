@@ -14,6 +14,30 @@ public class UserEntity {
     @ColumnInfo(name = "username")
     private String name;
 
+    public String getAtime() {
+        return atime;
+    }
+
+    public void setAtime(String atime) {
+        this.atime = atime;
+    }
+
+    @ColumnInfo(name = "Atime")
+    private String atime;
+
+    @ColumnInfo(name = "date")
+    private String date;
+
+
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @ColumnInfo(name="userdesc")
     private String desc;
 
@@ -22,6 +46,17 @@ public class UserEntity {
 
     @ColumnInfo(name="Owner_email")
     private String owner_email;
+
+    @ColumnInfo(name="istime")
+    private Boolean isTime;
+
+    public Boolean getTime() {
+        return isTime;
+    }
+
+    public void setTime(Boolean time) {
+        isTime = time;
+    }
 
     public void setOwner_email(String owner_email) {
         this.owner_email = owner_email;

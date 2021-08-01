@@ -48,4 +48,17 @@ public class AddUserViewModel {
     public void updateUser(UserEntity userEntity){
         myDataBase.myDataAccsessObject().UpdateUser(userEntity);
     }
+
+    public boolean isExistAlready(UserEntity userEntity){
+        int ispresent=myDataBase.myDataAccsessObject().isDataExist(userEntity.getId(),owner_email);
+        if(ispresent==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public UserEntity getUserData(String owner_email,int id){
+        return myDataBase.myDataAccsessObject().getUser(owner_email,id);
+    }
 }

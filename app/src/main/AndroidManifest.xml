@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomAssignment">
-        <activity android:name=".View.Profile.ProfileActivity"></activity>
+        <activity android:name=".View.Notification.NotificationMessage"></activity>
+        <activity android:name=".View.Profile.ProfileActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -48,6 +49,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".Model.AlarmManager.BootUpReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".Model.AlarmManager.AlarmBrodcast" />
     </application>
 
 </manifest>

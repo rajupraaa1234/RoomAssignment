@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center"
             >
 
             <RelativeLayout
@@ -62,7 +61,7 @@
                 android:background="@drawable/blue_border"
                 android:ellipsize="end"
                 android:gravity="center"
-                android:hint="Enter User name"
+                android:hint="Enter Title"
                 android:layout_margin="@dimen/size20dp"
                 android:maxLength="50"
                 android:text=""
@@ -87,10 +86,11 @@
                 android:hint="@string/enter_user_id"
                 android:layout_margin="@dimen/size20dp"
                 android:maxLength="10"
+                android:inputType="none"
+                android:enabled="false"
                 android:paddingStart="@dimen/size8dp"
                 android:paddingEnd="@dimen/size8dp"
                 android:singleLine="true"
-                android:inputType="number"
                 android:textColor="@color/col_2b2a2a"
                 android:textColorHint="@color/col_a7a7a7"
                 android:textSize="@dimen/size15sp"
@@ -117,6 +117,23 @@
                 android:textSize="@dimen/size15sp"
                 android:paddingLeft="@dimen/size8dp"
                 android:paddingRight="@dimen/size8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/size20dp"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:text="Set Date"
+                    android:layout_height="wrap_content"/>
+                <CheckBox
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:text="Set Time"
+                    android:layout_marginStart="@dimen/size30dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/editbtn"

@@ -156,15 +156,16 @@
                 android:hint="@string/email_address"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size55dp"
+                android:inputType="none"
+                android:enabled="false"
                 style="@style/CommonEditText"
-                android:inputType="textEmailAddress"
                 />
 
             <LinearLayout
                 android:id="@+id/relPhoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size55dp"
-                android:layout_marginTop="@dimen/size10dp"
+                android:layout_marginTop="@dimen/size20dp"
                 android:background="@drawable/blue_border">
 
                 <LinearLayout
@@ -227,7 +228,7 @@
                 android:id="@+id/updatebtn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size55dp"
-                android:layout_marginTop="@dimen/size10dp"
+                android:layout_marginTop="@dimen/size20dp"
                 android:background="@drawable/disable_btn"
                 android:gravity="center"
                 android:text="@string/update"
@@ -238,18 +239,7 @@
                 android:fontFamily="@font/sprodisplay_medium"
                 />
 
-            <TextView
-                android:id="@+id/tvTermCondition"
-                android:layout_width="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/by_entering_into_asapp_you_re_agree_to_our_terms_amp_conditions_"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size20dp"
-                android:textColor="@color/col_949494"
-                android:textSize="@dimen/size11sp"
-                android:textColorLink="@color/col_949494"
-                android:fontFamily="@font/sfrrodisplay_regular"
-                tools:ignore="SmallSp" />
+
         </LinearLayout>
     </ScrollView>
 

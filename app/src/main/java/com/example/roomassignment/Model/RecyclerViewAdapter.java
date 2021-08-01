@@ -7,8 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -48,11 +52,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         notifyItemChanged(position);
     }
 
+    public void addAtPostions(int pos,UserEntity userEntity){
+        arr.add(pos,userEntity);
+        notifyDataSetChanged();
+    }
+
     /// Remove item from recyclerview and notifyItemRemoved for notify to the recyclerview that an item has been changed
     public void removeItem(int position) {
         arr.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, arr.size());
+    }
+
+    public UserEntity getUser(int pos){
+       return arr.get(pos);
     }
 
 
@@ -74,6 +87,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
        holder.user_desc.setText(userEntity.getDesc());
        holder.user_id.setText(String.valueOf(userEntity.getId()));
        String imageStringUri=userEntity.getUser_image();
+       if(userEntity.getTime()){
+           holder.toggleButton2.setChecked(true);
+           holder.timeDate.setVisibility(View.VISIBLE);
+           holder.timeDate.setText(userEntity.getDate() + " " + userEntity.getAtime());
+       }else{
+           holder.toggleButton2.setChecked(false);
+           holder.timeDate.setVisibility(View.GONE);
+       }
+
        if(imageStringUri!=null && !imageStringUri.isEmpty()){
            Uri uri=Uri.parse(imageStringUri);
            Glide.with(context).load(uri).apply(RequestOptions.circleCropTransform()).into(holder.user_image);
@@ -81,9 +103,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Button edit=holder.edit;
         Button del=holder.delete;
-        edit.setOnClickListener(new View.OnClickListener(){
+        holder.toggleButton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v){
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                updateUserClickListner.onToggleClick(arr.get(position),position,b);
+            }
+        });
+
+        holder.cardv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 updateUserClickListner.onEdit(arr.get(position),position);
             }
         });
@@ -124,9 +153,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView user_name;
         TextView user_desc;
         TextView user_id;
+        RelativeLayout cardv;
         ImageView user_image;
         Button edit;
         Button delete;
+        ToggleButton toggleButton2;
+        TextView timeDate;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             user_id=itemView.findViewById(R.id.userid);
@@ -135,6 +167,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             user_image=itemView.findViewById(R.id.cartimage);
             edit=itemView.findViewById(R.id.edit);
             delete=itemView.findViewById(R.id.delete);
+            cardv = itemView.findViewById(R.id.cardv);
+            toggleButton2 = itemView.findViewById(R.id.toggleButton2);
+            timeDate = itemView.findViewById(R.id.timeanddate);
         }
     }
 }

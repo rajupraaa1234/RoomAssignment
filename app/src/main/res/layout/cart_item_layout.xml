@@ -12,12 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/size10dp"
+        android:id="@+id/cardv"
         android:background="@color/orangecolor"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_alignParentLeft="true"
             android:text="@string/_1"
             android:textStyle="bold"
@@ -25,23 +27,15 @@
             android:layout_margin="@dimen/size10dp"
             android:textColor="@color/white"
             />
-<!--        <ImageView-->
-<!--            android:id="@+id/cartimage"-->
-<!--            android:layout_width="@dimen/size80dp"-->
-<!--            android:layout_height="@dimen/size80dp"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_centerInParent="true"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:src="@mipmap/profile_placeholder"-->
-<!--            />-->
+
         <RelativeLayout
             android:padding="@dimen/size3dp"
             android:background="@drawable/mask"
-            android:layout_width="@dimen/size110dp"
+            android:layout_width="@dimen/size50dp"
             android:id="@+id/cartimage_rel"
             android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:layout_height="@dimen/size110dp">
+
+            android:layout_height="@dimen/size50dp">
 
             <com.github.siyamed.shapeimageview.CircularImageView
                 android:id="@+id/cartimage"
@@ -51,7 +45,30 @@
                 app:siBorderColor="@color/transparent"
                 app:siBorderWidth="0dp"
                 app:siRadius="@dimen/size50dp" />
+
+
         </RelativeLayout>
+
+
+        <ToggleButton
+            android:id="@+id/toggleButton2"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/cartimage_rel"
+            android:text="ToggleButton"
+            android:textOff="Off"
+            android:textOn="On"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/timeanddate"
+            android:textColor="@color/white"
+            android:text=""
+            android:layout_below="@+id/toggleButton2"
+            android:layout_height="wrap_content"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,13 +77,13 @@
             android:text="@string/username"
             android:id="@+id/username"
             android:textColor="@color/white"
-            android:layout_below="@+id/cartimage_rel"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal" />
         <Button
             android:layout_width="wrap_content"
             android:id="@+id/edit"
             android:layout_alignParentTop="true"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/size10dp"
             android:layout_toRightOf="@+id/userid"
@@ -82,6 +99,7 @@
             android:layout_toRightOf="@+id/cartimage_rel"
             android:layout_alignParentTop="true"
             android:layout_marginStart="@dimen/size20dp"
+            android:visibility="gone"
             android:id="@+id/delete"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/cartimage_rel"
@@ -96,10 +114,12 @@
           android:textColor="@color/white"
           android:layout_below="@+id/username"
           android:id="@+id/userdesc"
-          android:layout_centerHorizontal="true"
+          android:layout_toStartOf="@+id/cartimage"
+          android:layout_marginStart="@dimen/size60dp"
+          android:layout_toLeftOf="@+id/cartimage"
           android:gravity="center"
           android:textAlignment="center"
-          />
+          card_view:ignore="NotSibling" />
 
     </RelativeLayout>
 
